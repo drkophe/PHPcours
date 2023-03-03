@@ -1,0 +1,214 @@
+@import './partials/variables';
+@import './partials/contact';
+@import './partials/recipe';
+
+///////////////////////
+
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    a {
+        font-family: 'Gloria Hallelujah';
+        font-size: 20px;
+        text-decoration: none;
+        color: black;
+        &:hover {
+            color: #95775D;
+        }
+    }
+}
+
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 30px;
+
+    background-color: #EFEEE7;
+    border-bottom: #95775D 2px solid;
+
+    position: fixed;
+    top: 0px;
+
+    width: 100%;
+
+    z-index: 1;
+
+}
+
+
+footer {
+    background-color: #EFEEE7;
+    border-top: #95775D 2px solid;
+
+    padding: 30px;
+
+    width: 100%;
+}
+
+main {
+    margin-top: 200px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.test {
+    margin: 10px;
+
+    padding-top: 70px;
+    position: relative;
+    border: #95775D 2px solid;
+
+    height: 600px;
+    width: 800px;
+
+    border-radius: 50px;
+    background-color: #EFEEE7;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: black;
+
+    &:hover {
+        box-shadow: 0 0 20px black;
+    }
+
+    .line {
+        position: absolute;
+        border: #95775D 2px solid;
+        border-left: none;
+        border-right: none;
+
+        top: 140px;
+        height: 145px;
+        width: 800px;
+    }
+
+
+    * {
+        margin: 3px;
+        padding: 3px;
+    }
+
+    .up {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+
+        >:first-child {
+            width: 100%;
+            text-align: center;
+            h3 {
+                font-size: 40px;
+                white-space: nowrap;
+                width: 100%;
+                font-family: 'Gloria Hallelujah', 'Great Vibes';
+                font-weight: bold;
+            }
+            p {
+                font-family: 'Indie Flower';
+                font-size: 20px;
+                width: 100%;
+            }
+        }
+
+        >:last-child {
+            border: #95775D 2px solid;
+            background-color: #EFEEE7;
+            position: relative;
+
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .down {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+
+
+        >:first-child {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+
+            padding-left: 50px;
+
+            font-family: 'Gloria Hallelujah', 'Great Vibes';
+            span {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                h6 {
+                    font-size: 25px;
+                }
+                p {
+                    font-size: 25px;
+                }
+                
+            }
+        }
+        >:last-child{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: 'Gloria Hallelujah', 'Great Vibes';
+            font-size: 35px;
+
+            ion-icon {
+                color: red;
+                &:hover {
+                    color: #95775D ;
+                }
+            }
+
+
+        }
+    }
+
+    .img {
+        position: relative;
+        background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fauvraidelice.fr%2Fwp-content%2Fuploads%2F2020%2F06%2FIMG-AuVraiDelice-6.jpg&f=1&nofb=1&ipt=5192941f5ed4215a84f1436d1c078cb15fe138fbd50d865f5681fdd851283f76&ipo=images);
+        background-position: center;
+        background-size: cover;
+
+        width: 200px;
+        height: 200px;
+
+        border-radius: 50%;
+        border: #95775D 2px solid;
+        }
+
+}
+
+//////////////////////////////////////////////////

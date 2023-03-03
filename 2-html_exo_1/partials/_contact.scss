@@ -1,0 +1,81 @@
+#formulaire {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background-color: #EFEEE7;
+    width: 70%;
+    height: 535px;
+
+    padding: 0 30px 30px 30px;
+    border: 2px solid #95775D;
+    border-radius: 50px;
+    div {
+        padding: 10px;
+        margin: 0 20px 20px 20px;
+        width: 100%;
+        h3, input {
+            padding: 0 10px 10px 10px;
+            margin: 10px;
+        }
+        h3 {
+            font-family: 'Gloria Hallelujah';
+        }
+        input {
+            font-family: 'Indie Flower';
+            font-size: 20px;
+            font-weight: bolder;
+
+            padding: 5px 10px 5px 10px;
+        }
+
+        #text, #mail {
+            border-radius: 20px;
+            border-color: #95775D;
+        }
+
+        #mail {
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        #text {
+            letter-spacing: 1.5px;
+            width: 80%;
+            padding: 20px;
+
+            border: 2px solid #95775D;
+            border-radius: 50px;
+
+            font-family: 'Indie Flower';
+            font-size: 20px;
+            font-weight: bolder;
+        }
+    }
+
+    button {
+        position: absolute;
+        padding: 10px 20px 10px 20px;
+        border-radius: 30px;
+
+        font-family: 'Gloria Hallelujah';
+        font-size: 20px;
+        right: 100px;
+        top: 70px;
+
+        border: #95775D 2px solid;
+        background-color: #EFEEE7;
+        color: #95775D;
+        &:hover {
+            background-color: #95775D;
+            color: #EFEEE7;
+        }
+    }
+}
+
+// footer {
+//     position: absolute;
+//     bottom: 0;
+// }
