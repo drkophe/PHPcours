@@ -213,6 +213,10 @@
 
                         $baseDeDonnee = $connexion->query("SELECT * FROM utilisateurs");
 
+                        // $user = $connexion->query("SELECT * FROM utilisateurs WHERE login = $login AND mdp = $mdp");
+
+                        // foreach ($user as $utilisateur){ set cookie ...}
+
                         foreach($baseDeDonnee as $utilisateur){
                             if($utilisateur['login'] == $_POST['login']){
                                 connexion($_POST['login']);
