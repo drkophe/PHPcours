@@ -59,6 +59,37 @@
             <?php endforeach ?>
         </ul>
 
+        <h2>Inscription</h2>
+
+        <form method="POST">
+            <input type="text" name="login" placeholder="Login">
+            <input type="password" name="mdp" placeholder="Mot de passe">
+            <input type="text" name="prenom" placeholder="Prenom">
+            <input type="text" name="photo_profil" placeholder="URL photo de profil">
+            <input type="number" name="age" placeholder="Age">
+
+            <input type="submit" name="inscription" value="S'inscrire">
+        </form>
+
+        <?php 
+        if (isset($_POST['inscription'])){
+
+            $login = $_POST['login'];
+            $mdp = $_POST['mdp'];
+            $prenom = $_POST['prenom'];
+            $photo_profil = $_POST['photo_profil'];
+            $age = $_POST['age'];
+
+            $connexion->query("INSERT INTO utilisateurs 
+            (login,mdp,prenom,photo_profil,age) 
+            VALUES
+            ('$login','$mdp','$prenom','$photo_profil',$age)
+            ");
+
+            // header('Location : PHP-POO/7-baseDeDonnee/MyV/index.php'); // erreur ici ??
+        }
+        ?>
+
     </main>
    
 </body>

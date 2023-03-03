@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+
+    /* border: black solid 3px; */
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main>div {
+    width: 65%;
+
+    border-radius: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form>div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+h2{
+    text-align: center;
+}
+
+#fil_actu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.articles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 50%;
+
+    border-radius: 40px;
+
+    background-color: rgb(197, 197, 197);
+}
+
+.articles p:last-child {
+    align-self: end;
+}
+
+#inscription {
+    background-color: rgb(179, 223, 208);
+}
+
+#connexion {
+    background-color: rgb(223, 179, 196);
+}
+
+#publication {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 70%;
+}
+
+textarea {
+    width: 100%;
+}
