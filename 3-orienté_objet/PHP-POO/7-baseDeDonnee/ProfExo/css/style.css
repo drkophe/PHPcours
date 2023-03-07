@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header,
+footer {
+    padding: 15px;
+    background-color: purple;
+    color: #fff
+}
+
+header.flex {
+    justify-content: space-between;
+}
+
+header form {
+    width: 150px;
+    padding: 15px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 32px;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.frame {
+    height: 180px;
+    overflow: hidden;
+}
