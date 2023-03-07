@@ -6,6 +6,17 @@ include_once('bdd.php');
 
 class user
 {
+    public function inscription(){
+        $bdd = new bdd();
+        $connexion = $bdd->connexionBdd();
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $avatarURL = $_POST['avatrURL'];
+
+
+    }
+
     public function connexion()
     {
         $bdd = new bdd();
@@ -24,7 +35,7 @@ class user
             setcookie('email', $email, time() + 3600);
 
             // On redirige vers la page d'accueil
-            header('Location: /PHPcours/4-site_dynamique/1-todo/index.php');
+            header('Location: /PHPcours/4-site_dynamique/1-todo/lo/index.php');
         }
     }
 }
