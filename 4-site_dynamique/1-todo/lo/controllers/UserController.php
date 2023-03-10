@@ -1,23 +1,30 @@
 <?php
 
-declare(strict_types=1);
-
-
 include_once $_SERVER['DOCUMENT_ROOT']."/PHPcours/4-site_dynamique/1-todo/lo/models/UserModel.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/PHPcours/4-site_dynamique/1-todo/lo/controllers/TodoController.php";
 
 class UserController
 {
     private $email;
     private $password;
     private $id;
+    private $role;
+    private $avatarURL ="profil-avatar.jpg";
+
+    private $userModel;
+
+
 
     private const MIN_PASSWORD_LENGHT = 6;
+
 
 
     function __construct(string $email, string $password)
     { 
         $this->email= $email;
         $this->password = $password;
+
+        $this -> userModel = new UserModel($email,$password);
     }
 
     function isEmailValid():bool{
@@ -31,6 +38,26 @@ class UserController
     function isDataValid():bool{
         return $this->isEmailValid() && $this->isPasswordValid();
     }
+
+    //generer une chaine de caractére des erreurs
+    function getErrors(){
+        //declaration d'un tableau d'erreurs
+        $errors= [];
+        if(!($this->isEmailValid())){ //si l'email n'est pas valide
+            //ajouter l'erreur au tableau
+            array_push($errors, "emailError=InputInvalid");
+        }
+
+        if(!($this->isPasswordValid())){ // si le mdp n'est pas valide
+            //ajouter l'erreur au tableau
+            array_push($errors, "passwordError=InputInvalid");            
+        }
+
+        //retourner la chaine de caractére des erreurs
+        return join("&", $errors);
+        //emailError=InputInvalid&passwordError=InputInvalid
+    }
+    
 
     function signupUser(){
         //sauvgarde des informations dans la base de données
@@ -79,4 +106,124 @@ class UserController
 
         return $this;
     }
+
+    function exist(){
+        $userModel = new UserModel($this->email, $this->password);
+        //recup le tableau des infos de l'utilisateur
+        //user tab contient le tableau des infos du user et fetch les cherches
+        $userTab = $userModel -> fetch();
+        var_dump($userTab);
+
+        // si le tableau est vide donc l'utilisateur n'existe pas
+        if (count($userTab) === 0) {
+            return false;
+        } else { //cas ou l'utilisateur existe bel et bien
+            //enregistrer les informations de l'utilisateur afin de créer sa session
+            $this->id = $userTab['id'];
+            if ($userTab['avatarURL'] == null){
+                $this->avatarURL = "./images/users/profil-avatar.jpg";
+            }else{
+                $this->avatarURL = $userTab['avatarURL'];
+            }
+            $this -> role= $userTab['role'];
+
+            return true;
+        }
+    }
+    
+            function isPasswordCorrect(){
+    
+                $userModel = new UserModel($this->email, $this->password);
+                //recup le tableau des infos de l'utilisateur
+                //user tab contient le tableau des infos du user et fetch les cherches
+                $userTab = $userModel -> fetch();
+    
+                return $userTab['password'] === $this->password;
+    
+            }
+
+
+            static function createUserFromId($id){
+
+                $userFromDB = UserModel::fetchByID($id);
+                $controller = new self($userFromDB['email'], $userFromDB['password']);
+                $controller -> id = $id;
+                $controller -> role = $userFromDB['role'];
+                $controller -> avatarURL = $userFromDB['avatarURL'];
+    
+                return $controller;
+            }
+        
+    
+            function saveImage($avatar){
+                $this-> userModel-> saveImageToDB($avatar);
+                return $avatar;
+            }
+
+            function addTodo($todo){
+                $todoController = new TodoController($todo, $this->id);
+                $todoController->addTodo();
+            }   
+            
+        
+    
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+            return $this->id;
+        }
+    
+        /**
+         * Set the value of id
+         *
+         * @return  self
+         */ 
+        public function setId($id)
+        {
+            $this->id = $id;
+    
+            return $this;
+        }
+    
+        /**
+         * Get the value of avatarURL
+         */ 
+        public function getAvatarURL()
+        {
+            return $this->avatarURL;
+        }
+    
+        /**
+         * Set the value of avatarURL
+         *
+         * @return  self
+         */ 
+        public function setAvatarURL($avatarURL)
+        {
+            $this->avatarURL = $avatarURL;
+    
+            return $this;
+        }
+    
+        /**
+         * Get the value of role
+         */ 
+        public function getRole()
+        {
+            return $this->role;
+        }
+    
+        /**
+         * Set the value of role
+         *
+         * @return  self
+         */ 
+        public function setRole($role)
+        {
+            $this->role = $role;
+    
+            return $this;
+        }
 }
